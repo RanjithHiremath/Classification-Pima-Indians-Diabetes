@@ -43,7 +43,8 @@ As part of pre-processing two major steps were performed.
 Standardisation : This is a common but also a very important step in machine learning. Scaling essentially converts the data distribution into a Gaussian with zero mean and unit variance. As the numbers lie in the same range with normal distribution, the model large weight updates in back propagation are eliminated.
 
 Outlier Analysis : Handling and removing outliers also serves as an important steps since the rare and less improbable entries will effect our models prediction. I have used box-cox method to identify and plot the outliers. General assumption is a value above and below 1.5 * IQR is considered to be an outlier. Below plot depicts the same.
-	
+
+![IQRPLOT](/assets/IQR-26.PNG)
       	The above plot shows the presence of lot of outliers, but when counted the total was more than 130 rows, which is a bit hard to trust. May be these features do not follow a normal distribution and values above or below IQR are also important entries. Hence, proceeding without removing them.
 
 Data Split: The whole data is split into 3 parts.
@@ -58,7 +59,7 @@ Test set ( 20 % - 154 rows ).
 3.1 Cross entropy as loss function: Cross entropy is the loss function, whose value we try to reduce in logistic regression, it’s value is given by.
 
 
-
+![LossFormula](/assets/loss_formula.png)
 
 
 
@@ -75,7 +76,7 @@ Test set ( 20 % - 154 rows ).
 
 3.2 Sigmoid Function: Using sigmoid to convert the sum of product of weights and features (z) to a probability value in between [1, 0]. Sigmoid function provides various advantages when used like, its value lies between zero and one, it is easily differentiable etc.
 
-
+![Sigmoid](/assets/sigmoid_curve.png)
 
 
 
@@ -100,7 +101,8 @@ Test set ( 20 % - 154 rows ).
 The loss results are as shown below.
 
 
-
+![InitialCurve](/assets/initial_loss_log-32.png)
+![InitialMetrics](/assets/initial_metrics.png)
 
 
 
@@ -142,7 +144,8 @@ The loss results are as shown below.
 3.5 Learning rate tuning: Keeping all other parameters constant I tried to tune learning rate iteratively. The best learning rate to avoid over fitting will be lr  = 0.01 and epochs will be 10000. Following are the results of the model trained with these parameters.
 
 
-
+![tunedCurve](/assets/tuned_graph_lr.png)
+![tunedlMetrics](/assets/tuned_metrics_lr.png)
 
 
 
@@ -191,6 +194,8 @@ Although there is no change is results keeping a lower and more stable learning 
 
 3.6 Threshold Optimisation: All the above results are obtained at a constant threshold value of 0.5. But in most of the imbalanced cases the most optimum threshold is not at 0.5, it may be either lower or higher than that. To find optimum threshold I use ROC-AUC curve. Which is a plot of sensitivity vs 1-specificity, the left top most point’s threshold where true positive rate is more and false positive rate is less becomes my optimum threshold.
 
+![lr_auc](/assets/lr_AUC.png)
+![lr_auc_metric](/assets/lr_AUC_metrics.png)
 
 According to ROC - AUC curve the AUC score is 0.83, which tells the performance of model across all thresholds. And Best threshold is 0.32. The below results are obtained using the best threshold.
 
@@ -215,8 +220,7 @@ Using the same data to train a neural network without any regularisation or drop
 
 The validation and Train accuracy are diverging as we train the model. 
 
-
-
+![nn_initial_accuracy](/assets/NN_initial_acc-44.png)
 
 
 
@@ -229,6 +233,7 @@ The validation and Train accuracy are diverging as we train the model.
 
 Validation loss and Train loss are also diverging as we increase epochs. This shows that the model is overfitting.
 
+![nn_initial_loss](/assets/nn_initial_loss-45.png)
 
 
 
@@ -240,52 +245,28 @@ Regularisation is a method used to reduce overfitting. There are 2 types of Regu
 
 Below are the results with L1 regularisation.
 
-
-
 Here the validation loss and train loss both are getting reduced.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+![l1_loss](/assets/l1_nn_loss-48.png)
 
 The accuracy values also increase steadily for both train and validation.
+
+![l1_accu](/assets/nn_l1_accu-50.png)
 
 Hence we can say this is a more stable model.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Applying L2 regularisation also gave curves which are diverging as the epochs increase.But still the plots are better than using Neural networks without regularisation.
-
+![l2_loss](/assets/nn_l2_loss-52.png)
+![l2_accu](/assets/nn_l2_acc-54.png)
 
 Drop Out : Drop Out is the concept of turning of x% of neurons off randomly. In Keras it can be simply done by adding a drop out layer after a hidden layer. By doing so we allow the model to ignore the weighted sums randomly and avoid overfitting by seeing repeated features.
 
 The results of Drop out plus l1 regularisation are as follows:
 
+![drop_loss](/assets/nn_drop_loss-58.png)
 
+![drop_accu](/assets/nn_drop_acc-56.png)
 
 
 
@@ -315,7 +296,7 @@ These accuracy and loss values of train and validation are more streamlined and 
 
 Classification Report shows decent accuracy and F1 scores across all three splits.
 
-
+![class_report_drop](/assets/drop_classification_report.png)
 
 
 
@@ -325,8 +306,9 @@ Classification Report shows decent accuracy and F1 scores across all three split
 
 Optimising Threshold: Using AUC- ROC the best threshold found here is 0.335.Below are the results of the same. With Auc 0.83.
 
+![nn_AUC](/assets/nn_AUC.png)
 
-
+![nn_threshold](/assets/nn_nn_best_threshold.png)
 
 
 
