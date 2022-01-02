@@ -5,12 +5,12 @@ Logistic Regression Model to explore classification
 # 1. Problem Statement:
 	
 	The project’s problem statement at the core is to implement a classification algorithm using the provided data “Pima Indians Diabetes Database”. Further the problem is divided into three parts.
-	1.  Building a logistic regression algorithm from scratch and evaluating it’s 			     performance.	
-	2.  Training a Neural network model with l1 and l2 regularisers and evaluating it’s 		     performance.
-	3.  Training a Neural network model along with l1, l2 and drop out and compare the 	      performance.
+	1.  Building a logistic regression algorithm from scratch and evaluating it’s performance.	
+	2.  Training a Neural network model with l1 and l2 regularisers and evaluating it’s performance.
+	3.  Training a Neural network model along with l1, l2 and drop out and compare the performance.
 
 
-#2. Data And Pre-processing:
+# 2. Data And Pre-processing:
 
 	Pima Indians Diabetes Database has 768 rows with 8 features. They are 
 		1 Glucose (Blood Glucose level)
@@ -25,7 +25,7 @@ Logistic Regression Model to explore classification
 	
 	The Distribution of the outcome variable is as shown below in the screenshot.
 
-	
+	![Target Distribution](/assets/distri-24.png)
 
 
 
