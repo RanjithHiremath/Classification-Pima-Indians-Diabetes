@@ -25,7 +25,7 @@ Logistic Regression Model to explore classification
 	
 	The Distribution of the outcome variable is as shown below in the screenshot.
 
-	![Target Distribution](./assets/distri-24.png)
+![Target Distribution](/assets/distri-24.png)
 
 
 
