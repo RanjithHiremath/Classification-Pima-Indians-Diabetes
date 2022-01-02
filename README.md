@@ -1,5 +1,5 @@
 # Classification-Pima-Indians-Diabetes
-Logistic Regression Model to explore classification 
+Logistic Regression, Neural network and Regularization experiment 
 
 
 # 1. Problem Statement:
